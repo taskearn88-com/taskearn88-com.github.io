@@ -1,0 +1,3451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>TaskEarn — Earn. Watch. Grow.</title>
+
+  <meta
+    name="description"
+    content="TaskEarn is a rewards platform where users can discover eligible tasks, reward activities, projects and referral opportunities."
+  >
+
+  <meta name="theme-color" content="#050914">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #050914;
+      --bg-soft: #080e1d;
+      --card: #0c1428;
+      --card-2: #101a32;
+      --text: #f7f9ff;
+      --muted: #8792ad;
+      --muted-2: #626d87;
+      --blue: #5361ff;
+      --cyan: #12bff2;
+      --border: rgba(255,255,255,0.07);
+      --shadow: rgba(0,0,0,0.45);
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(
+          circle at 8% 4%,
+          rgba(76, 88, 255, 0.18),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 92% 10%,
+          rgba(0, 197, 255, 0.11),
+          transparent 25%
+        ),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background: rgba(5, 9, 20, 0.78);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+
+      border-radius: 13px;
+
+      object-fit: cover;
+
+      box-shadow:
+        0 0 28px rgba(71,99,255,0.35);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+
+      color: #7d88a4;
+
+      font-size: 7px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .nav-links a {
+      color: #98a3bd;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 42px;
+      padding: 0 17px;
+
+      border-radius: 11px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      color: #ffffff !important;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      box-shadow:
+        0 10px 30px rgba(42,109,255,0.25);
+
+      transition: 0.25s ease;
+    }
+
+    .nav-download:hover {
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      position: relative;
+
+      padding: 100px 0 90px;
+
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      left: -220px;
+      top: 20px;
+
+      border-radius: 50%;
+
+      background: rgba(77,82,255,0.13);
+
+      filter: blur(110px);
+
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      right: -190px;
+      top: 80px;
+
+      border-radius: 50%;
+
+      background: rgba(0,204,255,0.10);
+
+      filter: blur(110px);
+
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.08fr)
+        minmax(320px, 0.92fr);
+
+      align-items: center;
+
+      gap: 60px;
+    }
+
+    .status {
+      width: fit-content;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 12px;
+
+      border-radius: 999px;
+
+      border: 1px solid rgba(74,224,175,0.20);
+
+      background: rgba(35,204,151,0.07);
+
+      color: #56e4b2;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 0.9px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+
+      background: #39dfa8;
+
+      box-shadow:
+        0 0 10px #39dfa8;
+    }
+
+    .hero h1 {
+      margin-top: 21px;
+
+      max-width: 700px;
+
+      font-size:
+        clamp(45px, 6vw, 76px);
+
+      line-height: 0.98;
+
+      letter-spacing: -4px;
+    }
+
+    .gradient-text {
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff 5%,
+          #53c8ff 45%,
+          #7164ff 90%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero-description {
+      max-width: 620px;
+
+      margin-top: 25px;
+
+      color: #929db9;
+
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 32px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 52px;
+
+      padding: 0 22px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 14px;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      transition: 0.25s ease;
+    }
+
+    .primary-btn {
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      box-shadow:
+        0 15px 35px rgba(38,122,255,0.25),
+        inset 0 1px rgba(255,255,255,0.22);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 20px 42px rgba(38,122,255,0.35);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.09);
+
+      background: rgba(255,255,255,0.035);
+
+      color: #dbe1f3;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    .hero-note {
+      margin-top: 17px;
+
+      color: #68738f;
+
+      font-size: 10px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       PHONE PREVIEW
+    ========================= */
+
+    .app-preview {
+      display: flex;
+      justify-content: center;
+
+      perspective: 1000px;
+    }
+
+    .phone {
+      width: 292px;
+
+      padding: 9px;
+
+      border-radius: 35px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #202842,
+          #080c18
+        );
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      box-shadow:
+        0 35px 90px rgba(0,0,0,0.65),
+        0 0 60px rgba(66,80,255,0.15);
+
+      transform: rotate(2deg);
+    }
+
+    .phone-screen {
+      min-height: 575px;
+
+      overflow: hidden;
+
+      border-radius: 27px;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(74,80,255,0.18),
+          transparent 30%
+        ),
+        #070c18;
+
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .phone-top {
+      height: 55px;
+
+      padding: 0 17px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .phone-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .mini-logo {
+      width: 29px;
+      height: 29px;
+
+      border-radius: 9px;
+
+      object-fit: cover;
+    }
+
+    .phone-app-label {
+      color: #68748f;
+
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .phone-content {
+      padding: 19px;
+    }
+
+    .welcome {
+      color: #7e89a5;
+
+      font-size: 8px;
+      font-weight: 700;
+
+      letter-spacing: 0.6px;
+    }
+
+    .phone-title {
+      margin-top: 7px;
+
+      font-size: 21px;
+      font-weight: 800;
+
+      letter-spacing: -0.7px;
+    }
+
+    .balance-card {
+      margin-top: 17px;
+
+      padding: 19px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(29,42,79,0.75),
+          rgba(13,20,40,0.90)
+        );
+
+      border: 1px solid rgba(111,127,255,0.13);
+    }
+
+    .small-label {
+      color: #78839f;
+
+      font-size: 7px;
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+    }
+
+    .balance {
+      margin-top: 8px;
+
+      font-size: 29px;
+      font-weight: 800;
+    }
+
+    .phone-buttons {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 7px;
+
+      margin-top: 17px;
+    }
+
+    .phone-btn {
+      padding: 10px;
+
+      text-align: center;
+
+      border-radius: 10px;
+
+      background: rgba(255,255,255,0.04);
+
+      border: 1px solid rgba(255,255,255,0.06);
+
+      color: #a8b2c9;
+
+      font-size: 7px;
+      font-weight: 800;
+    }
+
+    .reward-card {
+      margin-top: 12px;
+
+      padding: 16px;
+
+      border-radius: 18px;
+
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(255,199,56,0.16),
+          transparent 35%
+        ),
+        linear-gradient(
+          145deg,
+          #122c4b,
+          #182044
+        );
+
+      border: 1px solid rgba(48,202,255,0.35);
+    }
+
+    .reward-label {
+      color: #ffe46a;
+
+      font-size: 7px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+    .reward-title {
+      margin-top: 7px;
+
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .reward-text {
+      margin-top: 6px;
+
+      color: #8996b1;
+
+      font-size: 7px;
+      line-height: 1.65;
+    }
+
+    .reward-amount {
+      margin-top: 13px;
+
+      color: #61d9ff;
+
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      margin-bottom: 11px;
+
+      color: #5ccfff;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size:
+        clamp(30px, 4vw, 48px);
+
+      line-height: 1.08;
+
+      letter-spacing: -2px;
+    }
+
+    .section-heading p {
+      margin-top: 14px;
+
+      color: #818ca7;
+
+      font-size: 13px;
+      line-height: 1.85;
+    }
+
+
+    /* =========================
+       FEATURES
+    ========================= */
+
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+    .feature {
+      padding: 27px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(19,28,52,0.90),
+          rgba(8,13,27,0.85)
+        );
+
+      border: 1px solid var(--border);
+
+      transition: 0.25s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-4px);
+
+      border-color:
+        rgba(84,116,255,0.25);
+    }
+
+    .feature-number {
+      width: 42px;
+      height: 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 20px;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          #18bce9
+        );
+
+      font-size: 12px;
+      font-weight: 900;
+
+      box-shadow:
+        0 10px 25px rgba(58,93,255,0.18);
+    }
+
+    .feature h3 {
+      font-size: 16px;
+    }
+
+    .feature p {
+      margin-top: 9px;
+
+      color: #7e89a5;
+
+      font-size: 11px;
+      line-height: 1.75;
+    }
+
+
+    /* =========================
+       REWARD SECTION
+    ========================= */
+
+    .reward-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 42px;
+
+      border-radius: 30px;
+
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(255,195,40,0.16),
+          transparent 27%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          rgba(30,173,255,0.16),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #0e1930,
+          #11152c
+        );
+
+      border: 1px solid rgba(52,202,255,0.28);
+
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.25);
+    }
+
+    .reward-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      right: -100px;
+      bottom: -120px;
+
+      border-radius: 50%;
+
+      background: rgba(95,76,255,0.18);
+
+      filter: blur(55px);
+    }
+
+    .reward-grid {
+      position: relative;
+      z-index: 2;
+
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      align-items: center;
+
+      gap: 30px;
+    }
+
+    .reward-box h2 {
+      font-size:
+        clamp(28px, 4vw, 44px);
+
+      line-height: 1.08;
+
+      letter-spacing: -2px;
+    }
+
+    .reward-box p {
+      max-width: 680px;
+
+      margin-top: 13px;
+
+      color: #8b97b4;
+
+      font-size: 12px;
+      line-height: 1.85;
+    }
+
+    .reward-amount-big {
+      margin-top: 20px;
+
+      display: flex;
+      align-items: baseline;
+
+      gap: 9px;
+
+      flex-wrap: wrap;
+    }
+
+    .reward-amount-big strong {
+      color: #5edbff;
+
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .reward-amount-big span {
+      color: #8c97b0;
+
+      font-size: 10px;
+    }
+
+    .reward-badge {
+      min-width: 130px;
+
+      padding: 12px 16px;
+
+      border-radius: 14px;
+
+      background: rgba(255,211,62,0.09);
+
+      border: 1px solid rgba(255,211,62,0.22);
+
+      color: #ffe36c;
+
+      text-align: center;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    /* =========================
+       TASKS
+    ========================= */
+
+    .task-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+    .task-card {
+      padding: 24px;
+
+      border-radius: 21px;
+
+      background:
+        rgba(12,18,34,0.86);
+
+      border: 1px solid var(--border);
+
+      transition: 0.25s ease;
+    }
+
+    .task-card:hover {
+      transform: translateY(-3px);
+
+      border-color:
+        rgba(83,102,255,0.23);
+    }
+
+    .task-top {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 10px;
+    }
+
+    .task-icon {
+      width: 43px;
+      height: 43px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 13px;
+
+      background: rgba(73,92,255,0.13);
+
+      border: 1px solid rgba(83,102,255,0.15);
+
+      color: #69bfff;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .task-reward {
+      color: #56d9ff;
+
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .task-card h3 {
+      margin-top: 19px;
+
+      font-size: 15px;
+    }
+
+    .task-card p {
+      margin-top: 8px;
+
+      color: #78839d;
+
+      font-size: 10px;
+      line-height: 1.75;
+    }
+
+
+    /* =========================
+       HOW IT WORKS
+    ========================= */
+
+    .steps {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 14px;
+    }
+
+    .step {
+      padding: 25px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18,27,50,0.90),
+          rgba(8,12,24,0.90)
+        );
+
+      border: 1px solid var(--border);
+    }
+
+    .step-num {
+      color: #6571ff;
+
+      font-size: 27px;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin-top: 15px;
+
+      font-size: 14px;
+    }
+
+    .step p {
+      margin-top: 8px;
+
+      color: #7e89a5;
+
+      font-size: 10px;
+      line-height: 1.75;
+    }
+
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .project-box {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 15px;
+    }
+
+    .project-card {
+      padding: 30px;
+
+      border-radius: 23px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111b35,
+          #080d1d
+        );
+
+      border: 1px solid var(--border);
+    }
+
+    .project-card h3 {
+      font-size: 18px;
+    }
+
+    .project-card p {
+      margin-top: 11px;
+
+      color: #818ca6;
+
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .project-points {
+      display: grid;
+
+      gap: 9px;
+
+      margin-top: 20px;
+    }
+
+    .project-point {
+      padding: 11px 13px;
+
+      border-radius: 11px;
+
+      background: rgba(255,255,255,0.035);
+
+      border: 1px solid rgba(255,255,255,0.04);
+
+      color: #aab4cb;
+
+      font-size: 9px;
+    }
+
+
+    /* =========================
+       REFERRAL
+    ========================= */
+
+    .referral {
+      padding: 35px;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(77,81,255,0.14),
+          rgba(13,184,239,0.08)
+        ),
+        #0b1225;
+
+      border: 1px solid rgba(98,114,255,0.18);
+    }
+
+    .referral h2 {
+      font-size: 30px;
+
+      letter-spacing: -1.2px;
+    }
+
+    .referral p {
+      max-width: 700px;
+
+      margin-top: 10px;
+
+      color: #838eaa;
+
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq-wrap {
+      max-width: 850px;
+    }
+
+    .faq-list {
+      display: grid;
+
+      gap: 11px;
+    }
+
+    .faq-item {
+      overflow: hidden;
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(17,27,50,0.88),
+          rgba(8,13,26,0.88)
+        );
+
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .faq-question {
+      width: 100%;
+
+      min-height: 62px;
+
+      padding: 0 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      border: 0;
+
+      background: transparent;
+
+      color: #eef2ff;
+
+      text-align: left;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      cursor: pointer;
+    }
+
+    .faq-plus {
+      flex: 0 0 auto;
+
+      width: 28px;
+      height: 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 9px;
+
+      background: rgba(83,97,255,0.10);
+
+      border: 1px solid rgba(83,97,255,0.17);
+
+      color: #69c9ff;
+
+      font-size: 18px;
+      font-weight: 400;
+
+      transition: 0.25s ease;
+    }
+
+    .faq-answer {
+      display: grid;
+
+      grid-template-rows: 0fr;
+
+      transition:
+        grid-template-rows
+        0.3s ease;
+    }
+
+    .faq-answer-inner {
+      overflow: hidden;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 20px;
+
+      color: #7f8aa4;
+
+      font-size: 10px;
+      line-height: 1.8;
+    }
+
+    .faq-item.active .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-item.active .faq-plus {
+      transform: rotate(45deg);
+    }
+
+
+    /* =========================
+       DOWNLOAD
+    ========================= */
+
+    .download {
+      position: relative;
+
+      padding: 110px 0;
+
+      text-align: center;
+
+      overflow: hidden;
+    }
+
+    .download::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 300px;
+
+      left: 50%;
+      top: 40px;
+
+      transform: translateX(-50%);
+
+      background:
+        radial-gradient(
+          ellipse,
+          rgba(70,93,255,0.15),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+
+      pointer-events: none;
+    }
+
+    .download .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .download-logo {
+      width: 82px;
+      height: 82px;
+
+      margin: 0 auto 23px;
+
+      border-radius: 23px;
+
+      object-fit: cover;
+
+      box-shadow:
+        0 15px 45px rgba(73,91,255,0.30);
+    }
+
+    .download h2 {
+      font-size:
+        clamp(34px, 5vw, 56px);
+
+      line-height: 1.05;
+
+      letter-spacing: -2.5px;
+    }
+
+    .download p {
+      max-width: 650px;
+
+      margin: 15px auto 0;
+
+      color: #818ca7;
+
+      font-size: 12px;
+      line-height: 1.85;
+    }
+
+    .download-btn {
+      margin-top: 29px;
+
+      min-width: 220px;
+      min-height: 56px;
+
+      padding: 0 25px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      font-size: 12px;
+      font-weight: 900;
+
+      box-shadow:
+        0 18px 40px rgba(43,118,255,0.27);
+
+      transition: 0.25s ease;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 22px 48px rgba(43,118,255,0.38);
+    }
+
+    .download-note {
+      margin-top: 13px;
+
+      color: #626d87;
+
+      font-size: 9px;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+
+      padding: 32px 0;
+
+      background: rgba(0,0,0,0.12);
+    }
+
+    .footer-inner {
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: #a8b1c6;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 18px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #626d87;
+
+      font-size: 9px;
+
+      transition: 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: #aeb8ce;
+    }
+
+    .footer-copy {
+      color: #59637b;
+
+      font-size: 9px;
+    }
+
+
+    /* =========================
+       COMING SOON POPUP
+    ========================= */
+
+    .coming-soon-overlay {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 99999;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background:
+        rgba(2,5,14,0.82);
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+
+    .coming-soon-overlay.active {
+      display: flex;
+    }
+
+    .coming-soon-box {
+      position: relative;
+
+      width: min(420px, 100%);
+
+      padding: 35px 28px 28px;
+
+      text-align: center;
+
+      border-radius: 28px;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(83,97,255,0.23),
+          transparent 48%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(18,191,242,0.10),
+          transparent 40%
+        ),
+        linear-gradient(
+          145deg,
+          #111a35,
+          #080d1d
+        );
+
+      border: 1px solid rgba(255,255,255,0.11);
+
+      box-shadow:
+        0 35px 100px rgba(0,0,0,0.70),
+        0 0 60px rgba(70,90,255,0.16);
+
+      animation:
+        comingSoonPop
+        0.28s
+        ease-out;
+    }
+
+    .coming-soon-box::before {
+      content: "";
+
+      position: absolute;
+
+      top: -1px;
+      left: 12%;
+      right: 12%;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(83,200,255,0.75),
+          rgba(113,100,255,0.75),
+          transparent
+        );
+    }
+
+    .coming-soon-logo {
+      width: 70px;
+      height: 70px;
+
+      margin: 0 auto 19px;
+
+      border-radius: 21px;
+
+      object-fit: cover;
+
+      box-shadow:
+        0 15px 40px rgba(43,118,255,0.32);
+    }
+
+    .coming-soon-label {
+      color: #5ccfff;
+
+      font-size: 8px;
+      font-weight: 800;
+
+      letter-spacing: 2px;
+    }
+
+    .coming-soon-box h2 {
+      margin-top: 10px;
+
+      font-size: 31px;
+
+      line-height: 1.15;
+
+      letter-spacing: -1.5px;
+    }
+
+    .coming-soon-box h2 span {
+      background:
+        linear-gradient(
+          90deg,
+          #53c8ff,
+          #7164ff
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .coming-soon-box p {
+      max-width: 330px;
+
+      margin: 14px auto 0;
+
+      color: #8994ae;
+
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    .coming-soon-close {
+      width: 100%;
+      height: 50px;
+
+      margin-top: 24px;
+
+      border: 0;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      color: #ffffff;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 14px 35px rgba(43,118,255,0.27);
+
+      transition: 0.25s ease;
+    }
+
+    .coming-soon-close:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 18px 40px rgba(43,118,255,0.38);
+    }
+
+    @keyframes comingSoonPop {
+
+      from {
+        opacity: 0;
+        transform:
+          scale(0.93)
+          translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          scale(1)
+          translateY(0);
+      }
+
+    }
+
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 950px) {
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+      .status {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .features {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .task-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .reward-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reward-badge {
+        width: fit-content;
+      }
+
+      .app-preview {
+        margin-top: 15px;
+      }
+
+    }
+
+
+    @media (max-width: 700px) {
+
+      .container {
+        width: min(
+          calc(100% - 24px),
+          1120px
+        );
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-download {
+        min-height: 39px;
+
+        padding: 0 13px;
+
+        font-size: 10px;
+      }
+
+      .hero {
+        padding: 70px 0 60px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+
+        letter-spacing: -2.8px;
+      }
+
+      .hero-description {
+        font-size: 12px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      .phone {
+        width: 265px;
+      }
+
+      .phone-screen {
+        min-height: 535px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .features,
+      .task-grid,
+      .steps,
+      .project-box {
+        grid-template-columns: 1fr;
+      }
+
+      .reward-box {
+        padding: 28px 22px;
+      }
+
+      .referral {
+        padding: 28px 22px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+
+        text-align: center;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+
+      .coming-soon-box {
+        padding: 31px 21px 23px;
+      }
+
+    }
+
+
+    @media (max-width: 380px) {
+
+      .brand-tagline {
+        display: none;
+      }
+
+      .brand-name {
+        font-size: 16px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .phone {
+        width: 250px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+
+  <header>
+
+    <div class="container nav">
+
+      <a
+        href="#top"
+        class="brand"
+        aria-label="TaskEarn Home"
+      >
+
+        <img
+          src="logo.png"
+          alt="TaskEarn Logo"
+          class="brand-logo"
+        >
+
+        <div class="brand-text">
+
+          <span class="brand-name">
+            TaskEarn
+          </span>
+
+          <span class="brand-tagline">
+            EARN • WATCH • GROW
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <nav
+        class="nav-links"
+        aria-label="Main navigation"
+      >
+
+        <a href="#features">
+          Features
+        </a>
+
+        <a href="#rewards">
+          Rewards
+        </a>
+
+        <a href="#tasks">
+          Tasks
+        </a>
+
+        <a href="#how">
+          How It Works
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+      </nav>
+
+
+      <a
+        href="#download"
+        class="nav-download"
+      >
+        Download App
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <main id="top">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+
+        <div>
+
+          <div class="status">
+
+            <span class="status-dot"></span>
+
+            TASKEARN REWARDS PLATFORM
+
+          </div>
+
+
+          <h1>
+
+            Earn more.
+
+            <span class="gradient-text">
+              Do more.
+            </span>
+
+          </h1>
+
+
+          <p class="hero-description">
+
+            TaskEarn brings tasks, reward activities, projects and
+            referral opportunities together in one premium rewards
+            experience. Discover eligible activities, follow the
+            requirements and track your reward journey.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="#download"
+              class="primary-btn"
+            >
+              Get TaskEarn
+            </a>
+
+
+            <a
+              href="#how"
+              class="secondary-btn"
+            >
+              Explore TaskEarn
+            </a>
+
+          </div>
+
+
+          <p class="hero-note">
+
+            Android app coming soon. Rewards and eligibility depend
+            on individual activity conditions.
+
+          </p>
+
+        </div>
+
+
+        <!-- APP PREVIEW -->
+
+        <div class="app-preview">
+
+          <div class="phone">
+
+            <div class="phone-screen">
+
+
+              <div class="phone-top">
+
+                <div class="phone-brand">
+
+                  <img
+                    src="logo.png"
+                    class="mini-logo"
+                    alt="TaskEarn"
+                  >
+
+                  TaskEarn
+
+                </div>
+
+
+                <span class="phone-app-label">
+                  APP
+                </span>
+
+              </div>
+
+
+              <div class="phone-content">
+
+
+                <div class="welcome">
+                  WELCOME TO TASKEARN
+                </div>
+
+
+                <div class="phone-title">
+                  Earn with TaskEarn
+                </div>
+
+
+                <div class="balance-card">
+
+                  <div class="small-label">
+                    AVAILABLE REWARDS
+                  </div>
+
+
+                  <div class="balance">
+                    ₹0.00
+                  </div>
+
+
+                  <div class="phone-buttons">
+
+                    <div class="phone-btn">
+                      WALLET
+                    </div>
+
+                    <div class="phone-btn">
+                      TASKS
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <div class="reward-card">
+
+                  <div class="reward-label">
+                    REWARD EVENT
+                  </div>
+
+
+                  <div class="reward-title">
+                    Watch & Earn
+                  </div>
+
+
+                  <div class="reward-text">
+
+                    Participate in eligible reward activities
+                    and complete the required steps according
+                    to the event conditions.
+
+                  </div>
+
+
+                  <div class="reward-amount">
+                    ₹50 — ₹10,000
+                  </div>
+
+                </div>
+
+
+                <div class="balance-card">
+
+                  <div class="small-label">
+                    QUICK ACCESS
+                  </div>
+
+
+                  <div class="phone-buttons">
+
+                    <div class="phone-btn">
+                      TASKS
+                    </div>
+
+                    <div class="phone-btn">
+                      WALLET
+                    </div>
+
+                    <div class="phone-btn">
+                      PROFILE
+                    </div>
+
+                    <div class="phone-btn">
+                      PROJECTS
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section id="features">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            TASKEARN ECOSYSTEM
+          </div>
+
+
+          <h2>
+
+            Everything you need to
+
+            <span class="gradient-text">
+              earn and grow.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            TaskEarn is designed around simple activities,
+            transparent task progress and a clean reward experience.
+
+          </p>
+
+        </div>
+
+
+        <div class="features">
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              01
+            </div>
+
+            <h3>
+              Reward Tasks
+            </h3>
+
+            <p>
+
+              Discover available tasks and complete their
+              requirements to become eligible for the associated
+              reward.
+
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              02
+            </div>
+
+            <h3>
+              Watch & Earn
+            </h3>
+
+            <p>
+
+              Participate in eligible reward advertisements and
+              activities according to the requirements shown for
+              each event.
+
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              03
+            </div>
+
+            <h3>
+              Projects
+            </h3>
+
+            <p>
+
+              Explore project-based opportunities and follow
+              the instructions provided for each available project.
+
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              04
+            </div>
+
+            <h3>
+              Wallet
+            </h3>
+
+            <p>
+
+              Keep track of your available balance and reward
+              activity through a dedicated wallet experience.
+
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              05
+            </div>
+
+            <h3>
+              Referral Rewards
+            </h3>
+
+            <p>
+
+              Invite eligible users through your referral system
+              and receive rewards according to applicable
+              referral conditions.
+
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-number">
+              06
+            </div>
+
+            <h3>
+              Simple Experience
+            </h3>
+
+            <p>
+
+              A clean interface makes it easier to discover
+              activities, check rewards and manage your account.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REWARDS
+    ========================== -->
+
+    <section id="rewards">
+
+      <div class="container">
+
+
+        <div class="reward-box">
+
+          <div class="reward-grid">
+
+
+            <div>
+
+              <div class="eyebrow">
+                WATCH & EARN
+              </div>
+
+
+              <h2>
+
+                Watch. Complete.
+
+                <span class="gradient-text">
+                  Earn rewards.
+                </span>
+
+              </h2>
+
+
+              <p>
+
+                TaskEarn can feature special Watch & Earn events
+                where eligible users complete the required activity
+                and follow the event conditions. Reward amounts,
+                availability and eligibility may vary by event.
+
+              </p>
+
+
+              <div class="reward-amount-big">
+
+                <strong>
+                  ₹50 — ₹10,000
+                </strong>
+
+                <span>
+                  possible event reward range
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="reward-badge">
+              REWARD EVENT
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TASKS
+    ========================== -->
+
+    <section id="tasks">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            AVAILABLE ACTIVITIES
+          </div>
+
+
+          <h2>
+
+            Complete tasks.
+
+            <span class="gradient-text">
+              Earn rewards.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            Different activities can be added to TaskEarn.
+            Each task contains its own requirements, completion
+            rules and reward information.
+
+          </p>
+
+        </div>
+
+
+        <div class="task-grid">
+
+
+          <div class="task-card">
+
+            <div class="task-top">
+
+              <div class="task-icon">
+                TSK
+              </div>
+
+              <div class="task-reward">
+                REWARD
+              </div>
+
+            </div>
+
+
+            <h3>
+              Daily Tasks
+            </h3>
+
+
+            <p>
+
+              Check available tasks and complete eligible
+              daily activities according to the instructions.
+
+            </p>
+
+          </div>
+
+
+          <div class="task-card">
+
+            <div class="task-top">
+
+              <div class="task-icon">
+                ADS
+              </div>
+
+              <div class="task-reward">
+                REWARD
+              </div>
+
+            </div>
+
+
+            <h3>
+              Watch & Earn
+            </h3>
+
+
+            <p>
+
+              Participate in eligible reward-ad events and follow
+              the completion requirements shown inside the app.
+
+            </p>
+
+          </div>
+
+
+          <div class="task-card">
+
+            <div class="task-top">
+
+              <div class="task-icon">
+                PRO
+              </div>
+
+              <div class="task-reward">
+                PROJECT
+              </div>
+
+            </div>
+
+
+            <h3>
+              Projects
+            </h3>
+
+
+            <p>
+
+              Take part in available projects and complete the
+              required steps before submitting your work.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+
+    <section id="how">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            HOW TASKEARN WORKS
+          </div>
+
+
+          <h2>
+
+            Four simple steps to
+
+            <span class="gradient-text">
+              get started.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            The TaskEarn website introduces the platform.
+            Account creation and reward activities will be handled
+            inside the Android application.
+
+          </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+          <div class="step">
+
+            <div class="step-num">
+              01
+            </div>
+
+            <h3>
+              Download
+            </h3>
+
+            <p>
+
+              Download the TaskEarn Android application when
+              it becomes available.
+
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-num">
+              02
+            </div>
+
+            <h3>
+              Create Account
+            </h3>
+
+            <p>
+
+              Create your TaskEarn account inside the Android
+              application.
+
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-num">
+              03
+            </div>
+
+            <h3>
+              Complete
+            </h3>
+
+            <p>
+
+              Explore eligible tasks, activities and projects
+              and follow their requirements.
+
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-num">
+              04
+            </div>
+
+            <h3>
+              Earn
+            </h3>
+
+            <p>
+
+              Eligible completed activities can generate rewards
+              according to their individual conditions.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            TASKEARN PROJECTS
+          </div>
+
+
+          <h2>
+
+            More than tasks.
+
+            <span class="gradient-text">
+              More opportunities.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            Project activities can provide structured work with
+            clear instructions and completion requirements.
+
+          </p>
+
+        </div>
+
+
+        <div class="project-box">
+
+
+          <div class="project-card">
+
+            <h3>
+              Project-Based Tasks
+            </h3>
+
+
+            <p>
+
+              Select an available project, read the instructions,
+              complete the required work and submit it according
+              to the project rules.
+
+            </p>
+
+
+            <div class="project-points">
+
+              <div class="project-point">
+                Clear project instructions
+              </div>
+
+              <div class="project-point">
+                Task completion tracking
+              </div>
+
+              <div class="project-point">
+                Reward based on project conditions
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="project-card">
+
+            <h3>
+              Task Marketplace
+            </h3>
+
+
+            <p>
+
+              Find available activities in one place and choose
+              opportunities that match your interests and
+              requirements.
+
+            </p>
+
+
+            <div class="project-points">
+
+              <div class="project-point">
+                Browse available activities
+              </div>
+
+              <div class="project-point">
+                Check reward information
+              </div>
+
+              <div class="project-point">
+                Complete eligible tasks
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REFERRAL
+    ========================== -->
+
+    <section id="referral">
+
+      <div class="container">
+
+
+        <div class="referral">
+
+          <div class="eyebrow">
+            REFERRAL PROGRAM
+          </div>
+
+
+          <h2>
+
+            Invite. Grow.
+
+            <span class="gradient-text">
+              Earn rewards.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            Share your TaskEarn referral code with eligible users.
+            Referral rewards are provided only when the applicable
+            referral requirements and eligibility conditions are met.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FAQ
+    ========================== -->
+
+    <section id="faq">
+
+      <div class="container">
+
+
+        <div class="section-heading">
+
+          <div class="eyebrow">
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+
+
+          <h2>
+
+            Questions?
+
+            <span class="gradient-text">
+              We have answers.
+            </span>
+
+          </h2>
+
+
+          <p>
+
+            Everything you need to know about the TaskEarn website,
+            Android application, tasks and rewards.
+
+          </p>
+
+        </div>
+
+
+        <div class="faq-wrap">
+
+          <div class="faq-list">
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+                aria-expanded="false"
+              >
+
+                <span>
+                  Is login required on the TaskEarn website?
+                </span>
+
+                <span class="faq-plus">
+                  +
+                </span>
+
+              </button>
+
+
+              <div class="faq-answer">
+
+                <div class="faq-answer-inner">
+
+                  <p>
+
+                    No. The TaskEarn website is a public
+                    information and landing page. Account creation
+                    and login will be handled inside the Android
+                    application.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+                aria-expanded="false"
+              >
+
+                <span>
+                  When will the Android app be available?
+                </span>
+
+                <span class="faq-plus">
+                  +
+                </span>
+
+              </button>
+
+
+              <div class="faq-answer">
+
+                <div class="faq-answer-inner">
+
+                  <p>
+
+                    The Android application is currently under
+                    development. The download button will be
+                    updated when the application is ready.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+                aria-expanded="false"
+              >
+
+                <span>
+                  What can I do inside TaskEarn?
+                </span>
+
+                <span class="faq-plus">
+                  +
+                </span>
+
+              </button>
+
+
+              <div class="faq-answer">
+
+                <div class="faq-answer-inner">
+
+                  <p>
+
+                    Depending on availability, users may be able
+                    to discover tasks, participate in reward
+                    activities, complete projects, use referral
+                    features and manage eligible rewards.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+                aria-expanded="false"
+              >
+
+                <span>
+                  Are rewards guaranteed?
+                </span>
+
+                <span class="faq-plus">
+                  +
+                </span>
+
+              </button>
+
+
+              <div class="faq-answer">
+
+                <div class="faq-answer-inner">
+
+                  <p>
+
+                    No. Rewards depend on the requirements,
+                    availability and eligibility conditions of
+                    each individual activity or event.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+                aria-expanded="false"
+              >
+
+                <span>
+                  How does Watch & Earn work?
+                </span>
+
+                <span class="faq-plus">
+                  +
+                </span>
+
+              </button>
+
+
+              <div class="faq-answer">
+
+                <div class="faq-answer-inner">
+
+                  <p>
+
+                    When an eligible Watch & Earn event is
+                    available, users can follow the instructions
+                    shown for that event and complete the required
+                    activity to become eligible for its reward.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+              <button
+                type="button"
+                class="faq-question"
+                aria-expanded="false"
+              >
+
+                <span>
+                  Can I use TaskEarn on a phone?
+                </span>
+
+                <span class="faq-plus">
+                  +
+                </span>
+
+              </button>
+
+
+              <div class="faq-answer">
+
+                <div class="faq-answer-inner">
+
+                  <p>
+
+                    The website is designed to work on mobile
+                    devices and desktops. The dedicated TaskEarn
+                    Android application is currently under
+                    development.
+
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         DOWNLOAD
+    ========================== -->
+
+    <section
+      class="download"
+      id="download"
+    >
+
+      <div class="container">
+
+
+        <img
+          src="logo.png"
+          alt="TaskEarn App Logo"
+          class="download-logo"
+        >
+
+
+        <div class="eyebrow">
+          TASKEARN ANDROID APP
+        </div>
+
+
+        <h2>
+
+          Your earning journey
+
+          <span class="gradient-text">
+            starts here.
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          The TaskEarn Android application is being developed
+          to bring tasks, reward activities, projects, referrals
+          and wallet features together in one place.
+
+        </p>
+
+
+        <a
+          href="#"
+          class="download-btn"
+          id="downloadButton"
+        >
+          Download TaskEarn App
+        </a>
+
+
+        <div class="download-note">
+          Android application currently coming soon
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+
+      <div class="footer-brand">
+        TaskEarn — Earn • Watch • Grow
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#features">
+          Features
+        </a>
+
+        <a href="#rewards">
+          Rewards
+        </a>
+
+        <a href="#tasks">
+          Tasks
+        </a>
+
+        <a href="#faq">
+          FAQ
+        </a>
+
+      </div>
+
+
+      <div class="footer-copy">
+        © 2026 TaskEarn. All rights reserved.
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       COMING SOON POPUP
+  ========================== -->
+
+  <div
+    id="comingSoonPopup"
+    class="coming-soon-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="comingSoonTitle"
+  >
+
+
+    <div class="coming-soon-box">
+
+
+      <img
+        src="logo.png"
+        alt="TaskEarn"
+        class="coming-soon-logo"
+      >
+
+
+      <div class="coming-soon-label">
+        TASKEARN ANDROID APP
+      </div>
+
+
+      <h2 id="comingSoonTitle">
+
+        App
+
+        <span>
+          Coming Soon
+        </span>
+
+      </h2>
+
+
+      <p>
+
+        The TaskEarn Android application is currently under
+        development. It will be available for download soon.
+
+      </p>
+
+
+      <button
+        type="button"
+        class="coming-soon-close"
+        id="comingSoonClose"
+      >
+        Got it
+      </button>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+  <script>
+
+
+    /* =========================
+       COMING SOON POPUP
+    ========================= */
+
+    const popup =
+      document.getElementById("comingSoonPopup");
+
+    const downloadButton =
+      document.getElementById("downloadButton");
+
+    const navDownload =
+      document.querySelector(".nav-download");
+
+    const comingSoonClose =
+      document.getElementById("comingSoonClose");
+
+
+    function showComingSoon(event) {
+
+      if (event) {
+        event.preventDefault();
+      }
+
+      popup.classList.add("active");
+
+      document.body.classList.add("no-scroll");
+
+      comingSoonClose.focus();
+
+    }
+
+
+    function closeComingSoon() {
+
+      popup.classList.remove("active");
+
+      document.body.classList.remove("no-scroll");
+
+    }
+
+
+    if (downloadButton) {
+
+      downloadButton.addEventListener(
+        "click",
+        showComingSoon
+      );
+
+    }
+
+
+    if (navDownload) {
+
+      navDownload.addEventListener(
+        "click",
+        function(event) {
+
+          event.preventDefault();
+
+          showComingSoon(event);
+
+        }
+      );
+
+    }
+
+
+    comingSoonClose.addEventListener(
+      "click",
+      closeComingSoon
+    );
+
+
+    popup.addEventListener(
+      "click",
+      function(event) {
+
+        if (event.target === popup) {
+
+          closeComingSoon();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          if (
+            popup.classList.contains("active")
+          ) {
+
+            closeComingSoon();
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       FAQ ACCORDION
+    ========================= */
+
+    const faqItems =
+      document.querySelectorAll(".faq-item");
+
+
+    faqItems.forEach(function(item) {
+
+      const question =
+        item.querySelector(".faq-question");
+
+
+      question.addEventListener(
+        "click",
+        function() {
+
+          const isActive =
+            item.classList.contains("active");
+
+
+          faqItems.forEach(function(otherItem) {
+
+            otherItem.classList.remove("active");
+
+            const otherQuestion =
+              otherItem.querySelector(
+                ".faq-question"
+              );
+
+            otherQuestion.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+          });
+
+
+          if (!isActive) {
+
+            item.classList.add("active");
+
+            question.setAttribute(
+              "aria-expanded",
+              "true"
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+
+    /* =========================
+       SMOOTH NAVIGATION
+    ========================= */
+
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(function(link) {
+
+        link.addEventListener(
+          "click",
+          function(event) {
+
+            const href =
+              this.getAttribute("href");
+
+
+            if (
+              !href ||
+              href === "#" ||
+              href === "#download"
+            ) {
+
+              return;
+
+            }
+
+
+            const target =
+              document.querySelector(href);
+
+
+            if (target) {
+
+              event.preventDefault();
+
+              target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+
+            }
+
+          }
+        );
+
+      });
+
+
+  </script>
+
+
+</body>
+</html>
